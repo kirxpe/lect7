@@ -1,4 +1,4 @@
-#include <QCoreApplication>
+#include <QApplication>
 #include <QDebug>
 #include "bigint.hpp"
 #include <string>
@@ -19,7 +19,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  QCoreApplication app(argc, argv);
+  QApplication app(argc, argv);
 
 
   //hello(cin, cout);

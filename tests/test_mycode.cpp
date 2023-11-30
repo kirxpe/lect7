@@ -1,26 +1,41 @@
 #include <QtTest/QtTest>
+#include <sstream>
 #include "../src/mycode.h"
 
-#include <sstream>
-using namespace std;
-
-class TestMyCode: public QObject {
+class TestMyCode : public QObject {
     Q_OBJECT
+
 private slots:
-    void testIvan();
+    void testHelloWithName();
+    void testHelloWithEmptyName();
+    void testHelloWithMultiWordName();
 };
 
-void TestMyCode::testIvan() {
-    std::stringstream sstr;
-    stringstream isst;
-    isst << "Ivan";
+void TestMyCode::testHelloWithName() {
+    std::stringstream input("John");
+    std::stringstream output;
 
-    hello(isst, sstr);
+    hello(input, output);
 
-    string str;
-    getline(sstr, str);
+    QCOMPARE(output.str(), std::string("hello John"));
+}
 
-    QCOMPARE(str == "hello Ivan", true);
+void TestMyCode::testHelloWithEmptyName() {
+    std::stringstream input("");
+    std::stringstream output;
+
+    hello(input, output);
+
+    QCOMPARE(output.str(), std::string("hello "));
+}
+
+void TestMyCode::testHelloWithMultiWordName() {
+    std::stringstream input("John Doe");
+    std::stringstream output;
+
+    hello(input, output);
+
+    QCOMPARE(output.str(), std::string("hello John"));
 }
 
 QTEST_MAIN(TestMyCode)

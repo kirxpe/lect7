@@ -6,6 +6,7 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 CONFIG  += c++11
+CONFIG += console
 QT      += testlib
 QT      -= gui
 

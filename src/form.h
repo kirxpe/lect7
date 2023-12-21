@@ -1,5 +1,6 @@
 #ifndef FORM_H
 #define FORM_H
+#include "ui_form.h"
 
 #include <QWidget>
 
@@ -7,20 +8,17 @@ namespace Ui {
 class Form;
 }
 
-class Form : public QWidget {
+class Form : public QWidget
+{
     Q_OBJECT
 
 public:
+    Ui::Form *ui;
     explicit Form(QWidget *parent = nullptr);
     ~Form();
 
-private slots:
+public slots:
     void start();
-    void checkSubstring();
-
-private:
-    Ui::Form *ui;
-    bool containsSubstring(const QString &str, const QString &subStr);
 };
 
 #endif // FORM_H

@@ -1,9 +1,5 @@
 #include <QApplication>
 #include <QDebug>
-#include "bigint.hpp"
-#include <string>
-#include <iostream>
-#include "mycode.h"
 #include "form.h"
 
 // 0. Положить проект в git, дописать код в form.cpp,
